@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->comment('ユーザー名');
-            $table->string('email')->unique()->comment('メールアドレス');
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password')->comment('パスワード');
-            $table->tinyInteger('is_kanji')->comment('幹事フラグ')->nullable();
-            $table->rememberToken();
+            $table->string('name')->comment('イベント名');
+            $table->text('description')->comment('イベント説明')->nullable();
+            $table->string('url')->comment('イベントURL')->nullable();
+            $table->string('location')->comment('イベント場所')->nullable();
+            $table->string('location_url')->comment('イベント場所URL')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('events');
     }
 };
