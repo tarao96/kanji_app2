@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="ja">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>{{ $title }}</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -25,6 +25,8 @@
         @vite(['resources/sass/app.scss', 'resources/js/app.ts'])
     </head>
     <body>
-        <p class="red">Hello, World!</p>
+        <x-navigation-bar></x-navigation-bar>
+        {{ $slot }}
+        <x-footer></x-footer>
     </body>
 </html>
