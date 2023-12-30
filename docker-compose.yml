@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+    container_name: kanji_app
+    volumes:
+      - ./kanji_app:/var/www/html
+    ports:
+      - 8000:80
+    depends_on:
+      - db
+  db:
+    build:
+      context: .
+      dockerfile: docker/db/Dockerfile
+    container_name: kanji_db
+    platform: linux/amd64
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kanji_db
+      MYSQL_USER: kanji
+      MYSQL_PASSWORD: pass
+    ports:
+      - 3306:3306
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: kanji_phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    ports:
+      - 8080:80
+    depends_on:
+      - db
+volumes:
+  db_data: {}
