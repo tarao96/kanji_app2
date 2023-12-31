@@ -17,3 +17,4 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 Route::post('/event', 'App\Http\Controllers\EventController@create')->name('event.create');
+Route::get('/schedule', 'App\Http\Controllers\EventDateController@index')->name('schedule');

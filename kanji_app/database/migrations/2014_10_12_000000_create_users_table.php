@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->comment('ユーザー名');
-            $table->string('email')->unique()->comment('メールアドレス');
+            $table->string('name')->comment('ユーザー名')->nullable();
+            $table->string('email')->unique()->comment('メールアドレス')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password')->comment('パスワード');
+            $table->string('password')->comment('パスワード')->nullable();
             $table->tinyInteger('is_kanji')->comment('幹事フラグ')->nullable();
             $table->rememberToken();
             $table->timestamps();

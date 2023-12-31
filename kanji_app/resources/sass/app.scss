@@ -29,3 +29,8 @@
 .input-textarea {
     width: 500px;
 }
+.selected {
+    background-color: $main-color;
+    color: $font-white;
+    border: none;
+}

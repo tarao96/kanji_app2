@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('event_date_id')->comment('イベント候補日時ID');
             $table->unsignedBigInteger('user_id')->comment('ユーザーID');
-            $table->tinyInteger('is_attendable')->default(0)->comment('出席可否');
+            $table->integer('attend_status')->comment('出席可否')->nullable();
             $table->foreign('event_date_id')->references('id')->on('event_dates');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

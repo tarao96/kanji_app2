@@ -17,6 +17,6 @@ class EventController extends Controller
     public function create(CreateRequest $request)
     {
         $this->eventService->create($request);
-        return redirect()->route('home');
+        return redirect()->route('schedule');
     }
 }

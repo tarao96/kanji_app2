@@ -22,7 +22,7 @@
                 font-family: 'Nunito', sans-serif;
             }
         </style>
-        @vite(['resources/sass/app.scss', 'resources/js/app.ts'])
+        @vite(['resources/sass/app.scss'])
     </head>
     <body>
         <x-navigation-bar></x-navigation-bar>
